@@ -38,7 +38,10 @@ void display(){
     }
 }
 
+void peep(){
+    //location 1st
 
+}
 
 int main(){
 
