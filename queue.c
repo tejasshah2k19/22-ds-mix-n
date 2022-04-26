@@ -42,11 +42,30 @@ void display(){
     }
 }
 
+void search(){
+
+    int searchNum,i,counter=0,isFound=0;
+    printf("\nEnter number that you want to search:");
+    scanf("%d",&searchNum);
+
+    for(i=f;i<=r;i++){
+        counter++;
+        if(q[i] == searchNum){
+            isFound = 1;
+            printf("\n%d Found at %d location ",searchNum,counter);
+            break;
+        }
+    }
+    if(isFound == 0 ){ // if(!isFound)
+        printf("\n%d NOT FOUND",searchNum);
+    }
+
+}
 int main(){
         int choice;
 
         while(1){
-            printf("\n0 For Exit\n1 For Insert\n2 For Delete\n3 For Display\nEnter choice..");
+            printf("\n0 For Exit\n1 For Insert\n2 For Delete\n3 For Display\n4 For Search\nEnter choice..");
             scanf("%d",&choice);
 
             switch(choice){
@@ -58,6 +77,8 @@ int main(){
                     deleteQ();break;
                 case 3:
                     display();break;
+                case 4:
+                    search();break;
 
             }//switch
         }//while
