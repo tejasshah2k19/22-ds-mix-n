@@ -1,0 +1,111 @@
+----------------------------------------
+enter location?
+3
+display data from stack from  3rd location not index 
+ 
+-------------------------------------------
+size 5 
+
+
+run:
+enter name 
+royal 
+
+4	l
+3	a
+2	y
+1	o
+0	r
+
+display()
+layor 
+
+
+
+run: 
+enter name 
+royalEducation 
+
+stackOverFlow !! 
+
+------------------------------------
+
+
+
+
+FiFo 
+
+stack 		vs 		Queue
+LIFO				FIFO  
+top				F,R
+V				H 
+
+
+30				10 20 30 
+20
+10 
+
+
+queue -> 
+	insert()
+	display()
+	delete() 
+
+
+
+
+
+
+-----------------------------------
+
+stack 1)location 2) strrev 
+queue 1)search   2) trimQueue  
+
+10 20 30 50 60 
+search : 50
+found : 4
+
+search : 100
+notFound 
+
+ex.1 
+queue
+0	0	0	1	2
+display
+0 0 0 1 2 
+trimQueue
+display 
+1 2 
+
+ex.2 
+queue
+0	0	1	0	3
+display
+0 0 1 0 3   
+trimQueue
+display
+1 0 3 
+
+ 
+
+------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
