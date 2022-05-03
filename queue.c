@@ -61,6 +61,19 @@ void search(){
     }
 
 }
+
+void trimQ(){
+    int i,j;
+    for(i=f;i<=r;i++){
+        if(q[i] != 0)
+            break;
+    }
+    for(j=f;i<=r;j++,i++){
+        q[j] = q[i];
+    }
+    r = j-1;
+
+}
 int main(){
         int choice;
 

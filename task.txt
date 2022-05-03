@@ -91,12 +91,34 @@ display
 ------------------------------
 
 
+int x = 0;//0 -> false [ 10 -10 ] 
+
+if(!x){
+	printf("hi");
+}else{
+	printf("hello"); 
+}
+
+
+1	2	3	4	5 [ 60 ] n time 
+linear search 
+
+sachin + worldcup 
+
+1-------99999-100000
 
 
 
 
+time complexity
 
+n --> 
 
+linear search 
+n-1 
+n-2 
+
+n/2 
 
 
 
