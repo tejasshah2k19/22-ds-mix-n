@@ -62,6 +62,27 @@ void search(){
 
 }
 
+
+
+void search2(){
+
+    int searchNum,i,j,counter=0,isFound=0;
+    printf("\nEnter number that you want to search:");
+    scanf("%d",&searchNum);
+
+    for(i=f,j=r;i<=r/2;i++,j--){
+        counter++;
+        if(q[i] == searchNum || q[j] == searchNum){
+            isFound = 1;
+            printf("\n%d Found",searchNum);
+            break;
+        }
+    }
+    if(isFound == 0 ){ // if(!isFound)
+        printf("\n%d NOT FOUND",searchNum);
+    }
+
+}
 void trimQ(){
     int i,j;
     for(i=f;i<=r;i++){
