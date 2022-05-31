@@ -2,7 +2,7 @@
 
 void insertData();
 void displayData();
-
+void deleteNode();
 
 //10 -> 20 -> 30 -> 40
 struct node {
@@ -18,7 +18,7 @@ int main(){
     int ch;
 
     while(1){
-        printf("\n0 For exit\n1 For Add\n2 For Display");
+        printf("\n0 For exit\n1 For Add\n2 For Display\n3 for delete");
         printf("\nEnter your choice!!");
         scanf("%d",&ch);
 
@@ -28,6 +28,9 @@ int main(){
                 break;
             case 2:
                 displayData();
+                break;
+            case 3:
+                deleteNode();
                 break;
             case 0:
                 exit(0);
@@ -68,5 +71,33 @@ void insertData(){
 
 void displayData(){
 
+    struct node *p ;
+        p=head;
+
+        while(p != NULL ){
+                printf("%d->",p->data);
+                p = p->next; //p++
+        }
+
+
+
 }
 
+void deleteNode(){
+
+    //last node delete
+    struct node *p,*q;
+    p = head;
+    while(p->next!=NULL){
+        p=p->next;
+    }
+    q = head;
+    while(q->next   != p )
+    {
+        q=q->next;
+    }
+    printf("\n%d removed ",p->data);
+    free(p);
+    q->next = NULL;
+
+}
