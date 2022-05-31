@@ -3,6 +3,9 @@
 void insertData();
 void displayData();
 void deleteNode();
+void search();
+void insertAtBeg();
+void deleteNodeBeg();
 
 //10 -> 20 -> 30 -> 40
 struct node {
@@ -18,7 +21,8 @@ int main(){
     int ch;
 
     while(1){
-        printf("\n0 For exit\n1 For Add\n2 For Display\n3 for delete");
+        printf("\n0 For exit\n1 For Add\n2 For Display\n3 for delete\n4 for Search");
+        printf("\n5 for InsertAtBeg\n6 for deleteBeg");
         printf("\nEnter your choice!!");
         scanf("%d",&ch);
 
@@ -31,6 +35,15 @@ int main(){
                 break;
             case 3:
                 deleteNode();
+                break;
+            case 4:
+                search();
+                break;
+            case 5:
+                insertAtBeg();
+                break;
+            case 6:
+                deleteNodeBeg();
                 break;
             case 0:
                 exit(0);
@@ -101,3 +114,73 @@ void deleteNode(){
     q->next = NULL;
 
 }
+
+
+void search(){
+    struct node *p;
+    int num,isFound = 0 ;//0 nt
+    printf("\nEnter number");
+    scanf("%d",&num);
+
+
+    p = head;
+    while(p!=NULL){
+        if(p->data == num){
+            isFound=1;
+            break;
+        }
+        p=p->next;
+    }
+    if(isFound == 0 )
+        printf("\n%d Not Present In LinkedList",num);
+    else
+        printf("\n%d Present In LinkedList",num);
+
+}
+
+
+void insertAtBeg(){
+
+    int num;
+    struct node *tmp;
+
+    if(head!=NULL){
+        printf("\nEnter number");
+        scanf("%d",&num);
+
+        tmp = (struct node*)malloc(sizeof(struct node));
+        tmp->data = num;
+        tmp->next = head;
+        head = tmp;
+
+    }else{
+        printf("\n create at least 1 node ");
+    }
+
+
+}
+
+void deleteNodeBeg(){
+    struct node *p;
+    if(head == NULL)
+        printf("\nList is Empty");
+    else{
+        p = head;
+        head = head->next;
+        printf("\n%d removed ",p->data);
+        free(p);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
