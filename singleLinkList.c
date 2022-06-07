@@ -1,11 +1,14 @@
 #include<stdio.h>
 
-void insertData();
+void insertData();//insertATLast
 void displayData();
-void deleteNode();
+void deleteNode();//deleteLast
 void search();
-void insertAtBeg();
-void deleteNodeBeg();
+void insertAtBeg();//
+void deleteNodeBeg();//deletebeg
+void insertAtAnyAfter();//after
+void insertAtAnyBefore();//before
+void deleteSelectedNode();//deleteAny
 
 //10 -> 20 -> 30 -> 40
 struct node {
@@ -23,6 +26,7 @@ int main(){
     while(1){
         printf("\n0 For exit\n1 For Add\n2 For Display\n3 for delete\n4 for Search");
         printf("\n5 for InsertAtBeg\n6 for deleteBeg");
+        printf("\n7 For InsertAnyAfter\n8 for insertAtAnyBefore\n9 for DeleteSelectedNode\n");
         printf("\nEnter your choice!!");
         scanf("%d",&ch);
 
@@ -44,6 +48,15 @@ int main(){
                 break;
             case 6:
                 deleteNodeBeg();
+                break;
+            case 7:
+                insertAtAnyAfter();
+                break;
+            case 8:
+                insertAtAnyBefore();
+                break;
+            case 9:
+                deleteSelectedNode();
                 break;
             case 0:
                 exit(0);
@@ -174,12 +187,107 @@ void deleteNodeBeg(){
 }
 
 
+void insertAtAnyAfter(){
+    int search,isFound = 0;//0 => not found
+    int num;
+    struct node *p,*tmp;
+
+    printf("\nEnter node data after you want to create new data");
+    scanf("%d",&search);
+
+    p = head;
+
+    while(p!=NULL){
+        if(p->data == search){
+            isFound = 1;//found
+            break;
+        }
+        p = p->next;
+    }
+
+    if(isFound == 1){
+        printf("\nEnter new Num");
+        scanf("%d",&num);
+
+        tmp = (struct node*)malloc(sizeof(struct node));
+        tmp->data=num;
+        tmp->next = p->next;
+        p->next = tmp;
+
+    }else{
+        printf("\nSource Data Invalid");
+    }
 
 
+}
 
 
+void insertAtAnyBefore(){
+    int search,isFound=0,num;
+    struct node *p,*tmp,*q;
 
+    printf("\nEnter node data before you want to create new data");
+    scanf("%d",&search);
 
+    p=head;
+    q=head;
+    while(p!=NULL){
+        if(p->data == search){
+            isFound = 1;
+            break;
+        }
+        q=p;
+        p = p->next;
+    }
+
+    if(isFound == 0){
+        printf("\nSource Not found ");
+    }else if(p == head ){
+        printf("\nInvalid Source data\nCant add in Beginning");
+
+        //insertAtBeg
+    }
+    else if(isFound == 1 )
+    {
+        printf("\nEnter new number");
+        scanf("%d",&num);
+
+        tmp = (struct node*)malloc(sizeof(struct node));
+        tmp->data=num;
+        q->next = tmp;
+        tmp->next=p;
+    }else{
+            printf("\nSMW PTA");
+    }
+}
+
+void deleteSelectedNode(){
+    int search,isFound = 0;
+    struct node *p,*q;
+
+    printf("\nEnter number - delete");
+    scanf("%d",&search);
+
+    p = head;
+
+    while(p!=NULL){
+
+        if(p->data == search){
+            isFound =1;
+            break;
+        }
+        q=p;
+        p=p->next;
+    }
+
+    if(isFound == 1){
+            printf("\n%d Removed",search);
+            q->next= p->next;
+            free(p);
+    }else{
+        printf("\nNode Not Found");
+    }
+}
 
 
 
