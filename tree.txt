@@ -1,0 +1,73 @@
+
+tree is a hierarchical data structure which is collection of nodes. 
+
+node -> data | address    node --> edges
+
+------------------------------------------------------------------
+
+*) the first node is known as root node 
+   origin node 
+
+*) Every node has one parent only. but root node does
+	not have any parent 
+
+*) Node who does not have any child is known as leaf    node.
+
+*) Parent Node is connected with Child node via edge.  
+
+*) if node having same parent called siblings. 
+
+
+*) height : 1  ( it starts with 1 ) 
+   level : 0   ( it starts with 0 ) 
+
+*) Degree of Node : total number of connected child is known as degree of a node
+
+------------------------------------------------------------------
+	Tree Types:-
+
+general tree - forest* 
+	a tree which does not have any restriction on number of child is known as general tree.
+	folder - mycomputer - 
+
+
+#
+binary tree : 2 
+	max 2 childern 
+	2 children 
+	left -  right 
+	
+	#full binary  tree 
+			parent --> childern -> 2 , 0 
+	#perfect/complete binary tree
+		
+
+	complete binary tree --> full binary -> in all case ?  NO 
+	full binary tree --> complete binary tree -> in all case?  YES 
+
+
+ 
+
+
+#bst -> binary search TRee 
+	1) binary tree 
+	2) parent node --> left node   [  lesser than parent  -- small ]
+		       --> right node  [  greater than parent -- big   ]
+
+  
+ 
+#avl
+#heap 
+
+ 
+
+------------------------------------------------------------------------------ 
+
+ 
+
+
+
+
+
+
+
