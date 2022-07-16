@@ -88,3 +88,11 @@ int main(){
     return 0;
 
 }
+	/*	root - left - right  [ PRE order  ]
+		left - root - right  [ In order   ]
+		left - right - root  [ POST order ]
+
+ 		IN   30 40 50 70 80 90
+		PRE  50 40 30 80 70 90
+		POST 30 40 70 90 80 50
+	 */
