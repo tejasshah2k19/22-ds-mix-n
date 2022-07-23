@@ -57,8 +57,69 @@ void postOrder(struct node *root){
     inOrder(root->right);
     printf("%d ",root->data);
 }
+
+struct node* inorderSuccessor(struct node *root){
+        while(root != NULL && root->left != NULL){
+            root = root->left;
+        }
+        return root;
+}
+struct node* deleteNode(struct node *root,int key){
+     struct node *tmp;
+      if(root == NULL){//80
+        return;
+      }
+      //match
+      if(root->data == key ){//70
+            if(root->left == NULL && root->right == NULL){
+                //leaf
+                free(root);//node deleted
+                printf("\n%d deleted",key);
+                return NULL;
+            }else if(root->left == NULL){
+                tmp = root->right;
+                free(root);
+                return tmp;
+            }else if(root->right == NULL){
+                tmp = root->left;
+                free(root);
+                return tmp;
+            }else{
+                //both node present
+                tmp = inorderSuccessor(root->right);
+                root->data = tmp->data;//250
+                root->right = deleteNode(root->right,tmp->data);
+             }
+      }else if(root->data > key ){
+        //left
+         root->left = deleteNode(root->left,key);//80
+      }else{
+        //right
+        root->right = deleteNode(root->right,key);
+      }
+
+      return root;
+}
+
+void searchNode(struct node *root,int search){
+    if(root == NULL){
+        printf("%d not found",search);
+        return;
+    }
+    else if(root->data == search){
+        printf("%d found",search);
+        return;
+    }else{
+        if(search > root->data ){
+            //right
+            searchNode(root->right,search);
+        }else{
+            searchNode(root->left,search);
+        }
+    }
+}
 int main(){
-        int num;
+        int num,search;
     //root =  addNode(root,10);
        //     addNode(root,20);
         //    addNode(root,5);
@@ -67,7 +128,7 @@ int main(){
 
            //preOrder(root);
            // inOrder(root);
-            scanf("%d",&num)
+            scanf("%d",&num);
             root = addNode(root,num);
 
             while(1){
@@ -85,6 +146,17 @@ int main(){
             preOrder(root);
             printf("\nPostOrder\n");
             postOrder(root);
+
+
+            printf("\nEnter a number search?");
+            scanf("%d",&search);
+
+            searchNode(root,search);//100 300
+
+            deleteNode(root,search);//100  70
+            printf("\nInOrder\n");
+            inOrder(root);
+
     return 0;
 
 }
